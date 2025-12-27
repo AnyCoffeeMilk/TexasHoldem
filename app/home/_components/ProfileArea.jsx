@@ -14,7 +14,7 @@ export default function ProfileArea({ playerInfo }) {
         </ThemeLink>
       </div>
       <Avatar
-        className="col-1 row-[2/5] min-h-full w-[110px] sm:col-[1/3] sm:row-2 sm:h-[240px] sm:min-h-auto sm:w-full md:h-[270px] md:w-[245px] lg:h-[300px] lg:w-full"
+        className="col-1 row-[2/5] min-h-full w-[121px] sm:col-[1/3] sm:row-2 sm:h-[240px] sm:min-h-auto sm:w-full md:h-[270px] md:w-[245px] lg:h-[300px] lg:w-[272px]"
         src={playerInfo.avatar}
         name={playerInfo.username}
       />

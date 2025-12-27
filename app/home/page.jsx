@@ -7,8 +7,12 @@ import OnlineMatchSVG from "@/app/_svgs/OnlineMatchSVG";
 import AIMatchSVG from "@/app/_svgs/AIMatchSVG";
 import { read_player_profile } from "@/actions/actions";
 import ThemeLink from "../_components/ThemeLink";
-import GameTitle from "./_components/GameTitle";
+import GameTitle from "../_components/GameTitle";
 import ProfileArea from "./_components/ProfileArea";
+import { getSocket } from "@/utils/socket";
+import { redirect } from "next/navigation";
+
+const socket = getSocket();
 
 export default function Home() {
   const [playerInfo, setPlayerInfo] = useState({
@@ -18,16 +22,21 @@ export default function Home() {
   });
 
   useEffect(() => {
-    read_player_profile().then(({ player_name, player_avatar, player_bank }) =>
-      setPlayerInfo({
-        username: player_name,
-        avatar: player_avatar,
-        bank: player_bank,
-      })
-    );
+    read_player_profile().then((data) => {
+      console.log(data);
+      if (data) {
+        setPlayerInfo({
+          username: data.player_name,
+          avatar: data.player_avatar,
+          bank: data.player_bank,
+        });
+      } else {
+        redirect("/signin");
+      }
+    });
   }, []);
 
-  return !playerInfo.avatar ? null : (
+  return !playerInfo.avatar ? null :  (
     <div className="m-1 grid gap-4 sm:m-4 sm:w-auto sm:grid-cols-[auto_1fr] sm:grid-rows-[1fr_auto]">
       <ProfileArea playerInfo={playerInfo} />
       <div className="col-1 row-1 sm:col-[2/3] sm:row-[1/2]">

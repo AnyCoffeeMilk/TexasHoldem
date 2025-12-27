@@ -1,6 +1,6 @@
 export default function GameTitle() {
   return (
-    <div className="container-md bg-light flex h-full rounded-sm">
+    <div className="container-md bg-light flex h-[calc(100%-4px)] rounded-sm">
       <div className="bg-dark m-1 flex flex-col flex-1 justify-center rounded-xs p-8">
         <div className="text-light text-6xl/[1em] md:text-7xl/[1em] font-extrabold tracking-widest">
           TEXAS

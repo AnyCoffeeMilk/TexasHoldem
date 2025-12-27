@@ -1,6 +1,7 @@
 @import 'tailwindcss';
 
 @theme {
+  --color-medium: #8a7465;
   --color-light: #e9cbb1;
   --color-dark: #2b1e1a;
   --shadow-xs: 1px 1px 0px 1px var(--color-dark);
@@ -106,7 +107,6 @@ button {
 input {
   padding: 0;
   outline: inherit;
-  border: none;
   font-family: var(--font-prime);
 }
 
